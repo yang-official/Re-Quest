@@ -21,6 +21,7 @@
 		77CBA3301F64FB1600A74633 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA32F1F64FB1600A74633 /* TabBarItemView.swift */; };
 		77CBA3321F65082500A74633 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3311F65082500A74633 /* FindVC.swift */; };
 		77CBA3341F6508C400A74633 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3331F6508C400A74633 /* HistoryVC.swift */; };
+		77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3351F650AAB00A74633 /* NavBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +55,7 @@
 		77CBA32F1F64FB1600A74633 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
 		77CBA3311F65082500A74633 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
 		77CBA3331F6508C400A74633 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		77CBA3351F650AAB00A74633 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		B3CC227496372F43CB1D16CA /* Pods_ReQuest_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReQuest_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 				77CBA32A1F64F9B500A74633 /* AddVC.swift */,
 				77CBA32C1F64FA1C00A74633 /* SavedVC.swift */,
 				77CBA3311F65082500A74633 /* FindVC.swift */,
+				77CBA3351F650AAB00A74633 /* NavBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				77CBA3101F64D89B00A74633 /* AppDelegate.swift in Sources */,
 				77CBA3341F6508C400A74633 /* HistoryVC.swift in Sources */,
 				77CBA32D1F64FA1C00A74633 /* SavedVC.swift in Sources */,
+				77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */,
 				77CBA3301F64FB1600A74633 /* TabBarItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

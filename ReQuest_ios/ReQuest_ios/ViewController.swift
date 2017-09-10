@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setupTabController()
     }
     
@@ -35,6 +38,7 @@ class ViewController: UIViewController {
 
         tabController.viewControllers = [profileVC, savedVC, findVC, historyVC, addVC]
         
-        
+        let navBarController = NavBarController.init(rootViewController: tabController)
+        self.present(navBarController, animated: true, completion: nil)
     }
 }
