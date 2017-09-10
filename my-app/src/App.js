@@ -113,7 +113,7 @@ class App extends React.Component {
     this.state = {
       data_request: [],
       data_offer: [],
-      data_geotype: [],
+      data_aggr: [],
     };
   }
 
@@ -128,11 +128,20 @@ class App extends React.Component {
     });
 
 
-
     console.log('test_channel', test_channel);
     var test_sub_geotype = test_client.subscribe(test_channel+'1', RTM.SubscriptionMode.SIMPLE, {
-      filter: 'SELECT * FROM `'+test_channel+'` GROUP BY type'
+      filter: 'SELECT COUNT(*),`type` FROM `'+test_channel+'` GROUP BY `type`',
+      period: 60,
     });
+
+
+    test_sub_geotype.on('rtm/subscription/data', function (pdu) {
+      pdu.body.messages.forEach(function (msg) {
+        console.log('Got message aggr:', msg);
+        self.setState((ps)=>({data_aggr: [msg].concat(_.take(ps.data_aggr, 100))}))
+      });
+    });
+
   }
   componentWillUnmount() {
     test_client.stop();
@@ -140,7 +149,7 @@ class App extends React.Component {
 
   // ["action", "change_size", "flags", "hashtags", "is_anon", "is_bot", "is_minor", "is_new", "is_unpatrolled", "mentions", "ns", "page_title", "parent_rev_id", "rev_id", "summary", "url", "user"]
   render() {
-    const { data_request, data_offer, data_geotype  } = this.state;
+    const { data_request, data_offer, data_aggr } = this.state;
 
     // eslint-disable-next-line
 
@@ -166,6 +175,8 @@ class App extends React.Component {
         <h1>Responders</h1>
         {table1(data_offer)}
 
+        <h1>Activity in Last-Minute</h1>
+        {table3(data_aggr)}
 
       </div>
     )
@@ -174,56 +185,74 @@ class App extends React.Component {
 
 export default App;
 
-const table1 = (data) => (
+const table3 = (data) => (
     <ReactTable
       data={data}
       columns={[
         {
-          Header: "Description",
-          columns: [
-            {
-              Header: "Direction",
-              accessor: "direction"
-            },
-            {
               Header: "Type",
               accessor: "type"
-            },            {
-              Header: "Details",
-              id: 'details',
-              accessor: d => _.join(_.values(d.details), ",")
-            },
-          ]
         },
         {
-          Header: "Location",
-          columns: [
-            {
-              Header: "Longitude",
-              accessor: "lng"
-            },
-            {
-              Header: "Latitude",
-              accessor: "lat"
-            }
-          ]
-        },
-        {
-          Header: 'Requested At',
-          columns: [
-            {
-              Header: "",
-              id: "requestedAt",
-              accessor: d => moment(d.requestedAt).format('LT'),
-            }
-          ]
+          Header: 'Count',
+          accessor: "COUNT(*)"
         }
+
       ]}
       defaultPageSize={10}
       className="-striped -highlight"
     />
 );
 
+const table1 = (data) => (
+  <ReactTable
+    data={data}
+    columns={[
+      {
+        Header: "Description",
+        columns: [
+          {
+            Header: "Direction",
+            accessor: "direction"
+          },
+          {
+            Header: "Type",
+            accessor: "type"
+          },            {
+            Header: "Details",
+            id: 'details',
+            accessor: d => _.join(_.values(d.details), ",")
+          },
+        ]
+      },
+      {
+        Header: "Location",
+        columns: [
+          {
+            Header: "Longitude",
+            accessor: "lng"
+          },
+          {
+            Header: "Latitude",
+            accessor: "lat"
+          }
+        ]
+      },
+      {
+        Header: 'Requested At',
+        columns: [
+          {
+            Header: "",
+            id: "requestedAt",
+            accessor: d => moment(d.requestedAt).format('LT'),
+          }
+        ]
+      }
+    ]}
+    defaultPageSize={10}
+    className="-striped -highlight"
+  />
+);
 
 const table2 = (data) => (
     <ReactTable
