@@ -17,6 +17,7 @@ enum QuestCategory {
     case Water
     case Uncategorized
     
+    
     func getMarkerPin() -> String {
         switch self {
         case .Food:

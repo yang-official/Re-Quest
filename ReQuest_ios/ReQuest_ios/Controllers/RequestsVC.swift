@@ -20,6 +20,10 @@ class RequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         requestsTable.estimatedRowHeight = 90
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: TableView
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

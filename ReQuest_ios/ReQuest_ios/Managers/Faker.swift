@@ -32,11 +32,10 @@ public class Faker {
                   category: QuestCategory.Food, creator: users[1], fulfiller: users[1], lat: 37.7763415, lng: -122.4218081),
             Quest(title: "Some diapers for my 2-year-old kid.", detail: "Any amount",
                   description: "Would really appreciate any amount that you can spare, the stores have run out.",
-                  category: QuestCategory.Housing, creator: users[2], fulfiller: users[2],  lat: 37.773123, lng: -122.415188),
+                  category: QuestCategory.Transportation, creator: users[2], fulfiller: users[2],  lat: 37.773123, lng: -122.415188),
             Quest(title: "Need potable water.", detail: "40 bottles.",
                   description: "My pipe is broken and the stream has been contaminated.",
-                  category: QuestCategory.Transportation, creator: users[3], fulfiller: users[3], lat: 37.773237, lng: -122.416292),
-            
+                  category: QuestCategory.Water, creator: users[3], fulfiller: users[3], lat: 37.773237, lng: -122.416292),
         ]
     } 
     
@@ -44,7 +43,7 @@ public class Faker {
         let users = getUsers()
         let request = Quest(title: "Need a ride to the evacuation zone.", detail: "to mexico",
                             description: "My car is damaged and I have no way to get out of this place!",
-                            category: QuestCategory.Housing, creator: users[4], fulfiller: users[4], lat: 37.773237, lng: 122.416292)
+                            category: QuestCategory.Transportation, creator: users[4], fulfiller: users[4], lat: 37.773237, lng: 122.416292)
         return [ request ]
     }
     

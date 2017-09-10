@@ -30,9 +30,8 @@ public class Satori {
                 let body : NSDictionary = SatoriPdu.body as NSDictionary;
                 // Broadcast the subscribed data for app
                 DispatchQueue.main.async {
-                    print("BROADCASTING: ", body)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.NotificationKey.Satori),
-                                                    object: nil, userInfo: SatoriPdu.body)
+                                                    object: nil, userInfo: body as? [AnyHashable : Any])
                 }
             default:
                 break
@@ -42,7 +41,7 @@ public class Satori {
         DispatchQueue.global(qos: .background).async {
             self.conn = SatoriRtmConnection(url: url, andAppkey: appKey);
             self.conn?.connect(pduHandler: handler)
-            var requestId:UInt32 = 123; // TODO: generate random?
+            var requestId:UInt32 = 123;
             self.conn?.subscribe(channelName, andRequestId: &requestId);
             while ((self.conn?.poll().rawValue)! >= 0) {
                 sleep(1);

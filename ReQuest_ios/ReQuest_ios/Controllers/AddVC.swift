@@ -25,5 +25,8 @@ class AddVC: UIViewController {
         titleField.resignFirstResponder()
     }
     
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
 }

@@ -295,8 +295,16 @@
                                     <action selector="backBtnPressed:" destination="vll-EX-Gep" eventType="touchUpInside" id="Ogh-0C-aSc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPK-HB-m7L">
+                                <rect key="frame" x="10" y="518" width="300" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Accept">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J6r-1m-fhx">
-                                <rect key="frame" x="10" y="60" width="300" height="500"/>
+                                <rect key="frame" x="10" y="60" width="300" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oWG-dj-bP7">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="274"/>
@@ -337,14 +345,6 @@
                                         <rect key="frame" x="0.0" y="274" width="300" height="186"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPK-HB-m7L">
-                                        <rect key="frame" x="0.0" y="460" width="300" height="40"/>
-                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <state key="normal" title="Accept">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Jfv-Cg-NvB"/>
@@ -353,7 +353,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xkY-Xx-BUM" firstAttribute="bottom" secondItem="sPK-HB-m7L" secondAttribute="bottom" constant="10" id="WqO-66-AzH"/>
+                            <constraint firstItem="xkY-Xx-BUM" firstAttribute="trailing" secondItem="sPK-HB-m7L" secondAttribute="trailing" constant="10" id="bM4-lc-BT1"/>
                             <constraint firstItem="J6r-1m-fhx" firstAttribute="leading" secondItem="xkY-Xx-BUM" secondAttribute="leading" constant="10" id="jgU-MS-Bat"/>
+                            <constraint firstItem="sPK-HB-m7L" firstAttribute="leading" secondItem="xkY-Xx-BUM" secondAttribute="leading" constant="10" id="weX-Id-kkN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xkY-Xx-BUM"/>
                     </view>

@@ -15,50 +15,41 @@ import SatoriRtmSdkWrapper
 class FindVC: UIViewController, MKMapViewDelegate, SceneLocationViewDelegate {
     let sceneLocationView = SceneLocationView()
 
-    let mapView = MKMapView()
-    var userAnnotation: MKPointAnnotation?
     var locationEstimateAnnotation: MKPointAnnotation?
-    var updateUserLocationTimer: Timer?
-    
-    ///Whether to show a map view
-    var showMapView = true
+    var userAnnotation: MKPointAnnotation?
     var centerMapOnUserLocation: Bool = true
-    var displayDebugging = false
-    
-    var updateInfoLabelTimer: Timer?
-    var adjustNorthByTappingSidesOfScreen = false
-    
+    var updateLocationTimer: Timer?
+    let mapView = MKMapView()
+
     @IBOutlet weak var centerMapBtn: UIButton!
     var quests = Faker.instance.getQuests()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Display an arrow which points north.
-        sceneLocationView.orientToTrueNorth = true
         sceneLocationView.locationEstimateMethod = .coreLocationDataOnly
+        sceneLocationView.orientToTrueNorth = true
         sceneLocationView.locationDelegate = self
         view.addSubview(sceneLocationView)
         
-        // SHOW HALF MAP VIEW
-        if showMapView {
-            mapView.delegate = self
-            mapView.showsUserLocation = true
-            mapView.alpha = 0.8
-            view.addSubview(mapView)
-        
-            updateUserLocationTimer = Timer.scheduledTimer(
-                timeInterval: 1,
-                target: self,
-                selector: #selector(FindVC.updateUserLocation),
-                userInfo: nil,
-                repeats: true)
-        }
-    }
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.alpha = 0.8
+        view.addSubview(mapView)
     
-    override func viewDidAppear(_ animated: Bool) {
+        updateLocationTimer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(FindVC.updateUserLocation),
+            userInfo: nil,
+            repeats: true
+        )
     }
-    
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     func placePinsOnMap() {
         for quest in quests {
             let (lat, lng) = quest.location
@@ -176,10 +167,34 @@ class FindVC: UIViewController, MKMapViewDelegate, SceneLocationViewDelegate {
     
     // MARK: Satori
     @objc func handleSatoriMessage(_ notification: NSNotification) {
-        // Update pins on ARScene & Map
+        let body = notification.userInfo! as NSDictionary
+        let arr = body.object(forKey: "messages") as! NSArray
+        let msg: NSDictionary = arr.object(at: 0) as! NSDictionary
+        let direction = msg.object(forKey: "direction") as! String
+        let title = msg.object(forKey: "type") as! String
+        let detailBody = msg.object(forKey: "details") as! NSDictionary
+        var detail = ""
+        if let detailTarget = detailBody.object(forKey: "target") as? String {
+            detail = detailTarget
+        } else if let detailTarget = detailBody.object(forKey: "numPeople") as? String  {
+            detail = detailTarget + " people"
+        } else if let detailTarget = detailBody.object(forKey: "size") as? String  {
+            detail = "Size " + detailTarget
+        } else if let detailTarget = detailBody.object(forKey: "item") as? String  {
+            detail = "Item: " + detailTarget
+        } else if let detailTarget = detailBody.object(forKey: "foodType") as? String  {
+            detail = "Food: " + detailTarget
+        }
+        let lng = msg.object(forKey: "lat") as! Double
+        let lat = msg.object(forKey: "lng") as! Double
+        let userId = msg.object(forKey: "userId") as! Int
+        let user = User(name: String(userId), profilePicUrl: "default", seed: userId)
+        let quest = Quest(title: title, detail: detail, description: "", category: .Uncategorized,
+                          creator: user, fulfiller: user, lat: lat, lng: lng)
+
+        quests.append(quest)
         self.placePinsInARScene()
         self.placePinsOnMap()
-        print(notification)
     }
     
     // MARK: Setup
@@ -190,7 +205,7 @@ class FindVC: UIViewController, MKMapViewDelegate, SceneLocationViewDelegate {
         sceneLocationView.run()
         
         // Observe Satori RTM Connection messages
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleSatoriMessage(_:)),
+        NotificationCenter.default.addObserver(self, selector: #selector(FindVC.handleSatoriMessage),
                                                name: NSNotification.Name(rawValue: Constants.NotificationKey.Satori), object: nil)
         
     }

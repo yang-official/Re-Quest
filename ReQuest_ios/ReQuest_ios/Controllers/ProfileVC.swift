@@ -15,4 +15,9 @@ class ProfileVC: UIViewController {
         NSLog("Initializing Satori")
         Satori.instance.initialize()
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
 }
