@@ -6,7 +6,7 @@ target 'ReQuest_ios' do
   use_frameworks!
 
   # Pods for ReQuest_ios
-  pod 'ARCL'
+  pod 'ARCL', :path => '/Users/leonmak/Desktop/ARKit-practice/ARKit-CoreLocation'
   pod "TimelineTableViewCell"
   pod 'ESTabBarController-swift'
 	

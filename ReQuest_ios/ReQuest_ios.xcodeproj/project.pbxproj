@@ -22,6 +22,9 @@
 		77CBA3321F65082500A74633 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3311F65082500A74633 /* FindVC.swift */; };
 		77CBA3341F6508C400A74633 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3331F6508C400A74633 /* HistoryVC.swift */; };
 		77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3351F650AAB00A74633 /* NavBarController.swift */; };
+		77CBA3381F6520AB00A74633 /* Satori.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3371F6520AB00A74633 /* Satori.swift */; };
+		77CBA33A1F65220000A74633 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3391F65220000A74633 /* Constants.swift */; };
+		77CBA33C1F65289D00A74633 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA33B1F65289D00A74633 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +59,9 @@
 		77CBA3311F65082500A74633 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
 		77CBA3331F6508C400A74633 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		77CBA3351F650AAB00A74633 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		77CBA3371F6520AB00A74633 /* Satori.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satori.swift; sourceTree = "<group>"; };
+		77CBA3391F65220000A74633 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		77CBA33B1F65289D00A74633 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ReQuest_ios/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		B3CC227496372F43CB1D16CA /* Pods_ReQuest_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReQuest_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,6 +117,9 @@
 				77CBA3181F64D89B00A74633 /* Assets.xcassets */,
 				77CBA31A1F64D89B00A74633 /* LaunchScreen.storyboard */,
 				77CBA31D1F64D89B00A74633 /* Info.plist */,
+				77CBA33D1F6528E100A74633 /* Managers */,
+				77CBA33B1F65289D00A74633 /* Extensions.swift */,
+				77CBA3391F65220000A74633 /* Constants.swift */,
 			);
 			path = ReQuest_ios;
 			sourceTree = "<group>";
@@ -134,6 +143,14 @@
 				77CBA32F1F64FB1600A74633 /* TabBarItemView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		77CBA33D1F6528E100A74633 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				77CBA3371F6520AB00A74633 /* Satori.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		864254F5C2B3A70EB2004DAA /* Frameworks */ = {
@@ -280,14 +297,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				77CBA3291F64F94D00A74633 /* ProfileVC.swift in Sources */,
+				77CBA33A1F65220000A74633 /* Constants.swift in Sources */,
 				77CBA3321F65082500A74633 /* FindVC.swift in Sources */,
 				77CBA32B1F64F9B500A74633 /* AddVC.swift in Sources */,
 				77CBA3141F64D89B00A74633 /* ViewController.swift in Sources */,
 				77CBA3101F64D89B00A74633 /* AppDelegate.swift in Sources */,
 				77CBA3341F6508C400A74633 /* HistoryVC.swift in Sources */,
+				77CBA33C1F65289D00A74633 /* Extensions.swift in Sources */,
 				77CBA32D1F64FA1C00A74633 /* SavedVC.swift in Sources */,
 				77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */,
 				77CBA3301F64FB1600A74633 /* TabBarItemView.swift in Sources */,
+				77CBA3381F6520AB00A74633 /* Satori.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

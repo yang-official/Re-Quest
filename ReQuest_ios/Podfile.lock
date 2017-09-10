@@ -7,12 +7,14 @@ PODS:
   - TimelineTableViewCell (1.0.1)
 
 DEPENDENCIES:
-  - ARCL
+  - ARCL (from `/Users/leonmak/Desktop/ARKit-practice/ARKit-CoreLocation`)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - ESTabBarController-swift
   - TimelineTableViewCell
 
 EXTERNAL SOURCES:
+  ARCL:
+    :path: /Users/leonmak/Desktop/ARKit-practice/ARKit-CoreLocation
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
@@ -22,11 +24,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
-  ARCL: 193b108d6fd5277ce742be3af92ccf81bbdd2f3b
+  ARCL: 9d0035b0fa3f2c41936334d50a49b563c2671000
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   ESTabBarController-swift: 8daa432f2a9be8ebd25101dc46c84472fd760512
   TimelineTableViewCell: 8e46d96b32caf5a3ca9f9d7d5b8c94e9de30b92a
 
-PODFILE CHECKSUM: 04f7d837e9a9c73af1a4f1d945c7844aef5007a8
+PODFILE CHECKSUM: 86e71fcfe933b4fff406d07e27215205f6e2a4b2
 
 COCOAPODS: 1.3.1

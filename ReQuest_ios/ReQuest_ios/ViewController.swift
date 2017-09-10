@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Satori.instance.initialize()
     }
     
     override func viewDidAppear(_ animated: Bool) {
