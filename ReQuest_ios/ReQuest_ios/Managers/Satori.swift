@@ -57,10 +57,8 @@ public class Satori {
         } catch let myJSONError {
             print(myJSONError)
         }
-        
         return ""
     }
-
 
     func publish(quest: Quest) {
         DispatchQueue.global(qos: .background).async {
