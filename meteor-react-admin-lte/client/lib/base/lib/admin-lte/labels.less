@@ -1,0 +1,32 @@
+// Admin LTE variables and Mixins
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+@import (reference) "../bootstrap/mixins.import.less";
+/*
+ * Component: Label
+ * ----------------
+ */
+.label-default {
+  background-color: @gray-lte;
+  color: #444;
+}
+
+.label-danger {
+  &:extend(.bg-red);
+}
+
+.label-info {
+  &:extend(.bg-aqua);
+}
+
+.label-warning {
+  &:extend(.bg-yellow);
+}
+
+.label-primary {
+  &:extend(.bg-light-blue);
+}
+
+.label-success {
+  &:extend(.bg-green);
+}
