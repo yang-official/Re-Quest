@@ -93,7 +93,7 @@ const startTestData = () => {
       test_client.publish(test_channel, randomData);
       n++;
       if(n < 1000) sendData();
-    }, 1000);
+    }, 3000);
   };
   sendData();
 };
@@ -150,12 +150,15 @@ class App extends React.Component {
     const self = this;
     return (
       <div>
-        <h1>Current Situation</h1>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginLeft: '2em', marginRight: '2em'}}>
+          <h1>Current Situation</h1>
+          <img src="/logo.png" alt="Logo" style={{"height": '4em'}} />
+        </div>
         <div style={{width: '100%', height: '400px'}}>
           <SimpleMap2 data={self.state.data_request.concat(self.state.data_offer)} />
         </div>
 
-        <h1>Emergency Requests</h1>
+        <h1 style={{marginLeft: '1em'}}>Emergency Requests</h1>
         {table1(data_request)}
 
         <br/>
@@ -209,7 +212,7 @@ const table1 = (data) => (
           Header: 'Requested At',
           columns: [
             {
-              Header: "Requested At",
+              Header: "",
               id: "requestedAt",
               accessor: d => moment(d.requestedAt).format('LT'),
             }
@@ -388,17 +391,19 @@ const markerStyle = {
 
 const MarkerComponent = ({re_quest}) => {
   const {direction, type} = re_quest;
-  console.log('mark', {direction, type});
   const backgroundColor = direction === "request" ? "red" : "blue";
   const iconStyle = {width: '2em', height: '2em'};
   const iconSymbol = markerStyle[type][0];
-  console.log('backgroundColor', backgroundColor)
   return (
     <div style={{
-      position: 'relative', color: 'white', background: {backgroundColor},
-      height: 40, width: 60, top: -20, left: -30,
+      color: 'white', background: backgroundColor,
+      height: 50, width: 50, top: -20, left: -30,
+      flexDirection: 'column',  borderRadius: '1em',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     }}>
-      <iconSymbol style={iconStyle} />
+      {React.createElement(iconSymbol , {style:iconStyle})}
       {type}
     </div>
   )
@@ -409,37 +414,52 @@ class SimpleMap2 extends Component {
   static defaultProps = {
     center: {lat: 37.773660, lng: -122.415878},
     zoom: 13,
-    renderHack: 0.00000000001,
+    renderHack: 0.01,
   };
   //
   // componentDidUpdate() {
   //   this.setState((ps)=>{renderHack: (-1)*ps.renderHack});
   // }
-  // componentDidMount() {
-  //   const self = this;
-  //
-  //   setInterval(()=>{
-  //     self.setState((ps)=>{renderHack: (-1)*ps.renderHack});
-  //   }, 1000);
-  //   //
-  // }
+  componentDidMount() {
+    const self = this;
+
+    setInterval(()=>{
+      self.setState((ps)=>{renderHack: (-1)*ps.renderHack});
+    }, 1000);
+    //
+  }
 
   render() {
     const self = this;
-    console.log();
+    const {lat, lng} = this.props.center;
+    const firstPoint = self.props.data[0];
+    // const lat = _.isUndefined(firstPoint) || _.isUndefined(firstPoint.lat) ? lat0 : firstPoint.lat;
+    // const lng = _.isUndefined(firstPoint) || _.isUndefined(firstPoint.lng) ? lng0 : firstPoint.lng;
+    // console.log('lat', 'lng', lat, lng);
+
+    const refreshF = (a,b,c) => {
+      console.log('refreshF', a,b,c);
+    };
     return (
       <GoogleMapReact
-        defaultCenter={this.props.center}
-        defaultZoom={this.props.zoom}
+        apiKey={googleMapsAPIKey}
+        zoom={this.props.zoom}
+        center={{lat: lat+this.props.renderHack, lng}}
+        key={this.props.renderHack}
+
       >
 
-      { self.props.data.map((re_quest)=>{
+      { self.props.data.map((re_quest, n)=>{
           return (
              <MarkerComponent
-              lat={37.773660}
-              lng={-122.415878}
+              lat={lat}
+              lng={lng}
               re_quest={re_quest}
-              key={Math.random()}
+              key={n}
+              onBoundsChange={refreshF}
+              onChildClick={refreshF}
+              onChildMouseEnter={refreshF}
+              onChildMouseLeave={refreshF}
             />
           )
       })}
