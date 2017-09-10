@@ -1,15 +1,11 @@
 # Re-Quest
-Mobile application for submitting and fulfilling requests
+Mobile application for submitting and fulfilling requests in real time and real life.
 
 ## Features
 
-Re-Quest is a mobile app built on Satori API that allows users to request and complete posted objectives in real time and real life. Quest objectives can be posted directly by users into a virtual real time marketplace, or by specialized AI that reads live data feeds and posts relevant objectives. View filters and AI bots automatically make sure you only see objectives relevant to you.
-
-* write to stream
-* form for input
-* read from stream
-* table to data
-* city dashboard
+* Quest objectives can be posted directly by users into a virtual real time marketplace, or by specialized AI that reads live data feeds and posts relevant objectives.
+* View filters and AI bots automatically make sure you only see objectives relevant to you.
+* Administrator dashboards allow large-scale monitoring to aid city officials, governments, and large businesses in coordination.
 
 ## Use Cases
 
