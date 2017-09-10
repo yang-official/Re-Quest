@@ -8,7 +8,14 @@ const recentsIcon = <FontIcon className="material-icons">restore</FontIcon>;
 const favoritesIcon = <FontIcon className="material-icons">favorite</FontIcon>;
 const nearbyIcon = <IconLocationOn />;
 
-
+const styles = {
+  bottomNav: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    width: '100%',
+  },
+};
 /**
  * A simple example of `BottomNavigation`, with three labels and icons
  * provided. The selected `BottomNavigationItem` is determined by application
@@ -23,7 +30,7 @@ class BottomNavigationExampleSimple extends Component {
 
   render() {
     return (
-      <Paper zDepth={1}>
+      <Paper zDepth={1} style={styles.bottomNav} >
         <BottomNavigation selectedIndex={this.state.selectedIndex} >
           <BottomNavigationItem
             label="Recents"

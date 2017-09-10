@@ -3,15 +3,17 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
-import AppBar from 'material-ui/AppBar';
-
 import BottomNav from './components/bottomnav.jsx';
+import AppBar from './components/appbar.jsx';
 
 import Dialog from 'material-ui/Dialog';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import FontIcon from 'material-ui/FontIcon';
+
 
 
 const muiTheme = getMuiTheme({
@@ -32,12 +34,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column'
   },
-  bottomNav: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    width: '100%',
-  },
+
   container2: {
     flex: '1 1 100%;',
     display: 'flex',
@@ -79,7 +76,6 @@ class Main extends Component {
       open: true,
     });
   }
-
   render() {
     const standardActions = (
       <FlatButton
@@ -95,39 +91,28 @@ class Main extends Component {
 
           <AppBar/>
 
-          <Dialog
-            open={this.state.open}
-            title="Super Secret Password"
-            actions={standardActions}
-            onRequestClose={this.handleRequestClose}
-          >
-            1-2-3-4-5
-          </Dialog>
-
-          <h1>Material-UI</h1>
-          <h2>example project</h2>
+          <a href="/profile"><h1>Material-UI</h1>
+          <h2>example project</h2></a>
           <RaisedButton
-            label="Super Secret Password"
+            label="Upload File"
+            icon={<FontIcon className="material-icons">file_upload</FontIcon>} // material-ui-icons
             secondary={true}
-            onTouchTap={this.handleTouchTap}
-          />
-
-          <Tabs
-            style={styles.bottomNav}
-            contentContainerStyle={styles.container}
-            tabTemplate={TabTemplate}
+            // onTouchTap={this.handleTouchTap}
           >
-            <Tab label="tab1"></Tab>
-            <Tab label="tab2"></Tab>
-          </Tabs>
+            <input
+              onTouchTap={e => this.upload(e.target.files[0])}
+              style={{ display: 'none' }}
+              type="file"
+            />
+          </RaisedButton>
 
+          <BottomNav />
         </div>
       </MuiThemeProvider>
     );
   }
 }
 
-// <BottomNav />
 export default Main;
 
 
