@@ -9,7 +9,17 @@
 import UIKit
 
 class DetailVC: UIViewController {
-
+    
+    var quest: Quest?
+    
+    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var userImgView: UIImageView!
+    @IBOutlet weak var descriptionLbl: UILabel!
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

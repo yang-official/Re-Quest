@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0636B1521F451E1644C5256E /* Pods_ReQuest_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC227496372F43CB1D16CA /* Pods_ReQuest_ios.framework */; };
 		7757BF8D1F6542B30004629B /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF8C1F6542B30004629B /* DetailVC.swift */; };
+		7757BF901F654FE60004629B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF8F1F654FE60004629B /* User.swift */; };
+		7757BF921F654FF50004629B /* QuestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF911F654FF50004629B /* QuestsCell.swift */; };
+		7757BF941F6550050004629B /* RequestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF931F6550050004629B /* RequestsCell.swift */; };
+		7757BF961F65556E0004629B /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF951F65556E0004629B /* Quest.swift */; };
+		7757BF981F6555D20004629B /* QuestCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF971F6555D20004629B /* QuestCategory.swift */; };
+		777AB5881F656E4E004E1D16 /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AB5871F656E4E004E1D16 /* Faker.swift */; };
 		77CBA3101F64D89B00A74633 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA30F1F64D89B00A74633 /* AppDelegate.swift */; };
 		77CBA3141F64D89B00A74633 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3131F64D89B00A74633 /* ViewController.swift */; };
 		77CBA3171F64D89B00A74633 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77CBA3151F64D89B00A74633 /* Main.storyboard */; };
@@ -45,6 +51,12 @@
 		2437E6F6D31EF021CCE63BCA /* Pods-ReQuest_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReQuest_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReQuest_ios/Pods-ReQuest_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		6A0148001F450195C03E1F48 /* Pods-ReQuest_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReQuest_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReQuest_ios/Pods-ReQuest_ios.release.xcconfig"; sourceTree = "<group>"; };
 		7757BF8C1F6542B30004629B /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		7757BF8F1F654FE60004629B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7757BF911F654FF50004629B /* QuestsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsCell.swift; sourceTree = "<group>"; };
+		7757BF931F6550050004629B /* RequestsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsCell.swift; sourceTree = "<group>"; };
+		7757BF951F65556E0004629B /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
+		7757BF971F6555D20004629B /* QuestCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestCategory.swift; sourceTree = "<group>"; };
+		777AB5871F656E4E004E1D16 /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		77CBA30C1F64D89B00A74633 /* ReQuest_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReQuest_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77CBA30F1F64D89B00A74633 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77CBA3131F64D89B00A74633 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +99,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7757BF8E1F654FDB0004629B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7757BF8F1F654FE60004629B /* User.swift */,
+				7757BF951F65556E0004629B /* Quest.swift */,
+				7757BF971F6555D20004629B /* QuestCategory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		77CBA3031F64D89B00A74633 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +131,7 @@
 		77CBA30E1F64D89B00A74633 /* ReQuest_ios */ = {
 			isa = PBXGroup;
 			children = (
+				7757BF8E1F654FDB0004629B /* Model */,
 				77CBA32E1F64FAFF00A74633 /* View */,
 				77CBA3271F64F93600A74633 /* Controllers */,
 				77CBA30F1F64D89B00A74633 /* AppDelegate.swift */,
@@ -141,6 +164,8 @@
 		77CBA32E1F64FAFF00A74633 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7757BF911F654FF50004629B /* QuestsCell.swift */,
+				7757BF931F6550050004629B /* RequestsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				77CBA3371F6520AB00A74633 /* Satori.swift */,
+				777AB5871F656E4E004E1D16 /* Faker.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -256,17 +282,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ReQuest_ios/Pods-ReQuest_ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/TJProfileImage/TJProfileImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
-				"${BUILT_PRODUCTS_DIR}/TimelineTableViewCell/TimelineTableViewCell.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJProfileImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TimelineTableViewCell.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -298,13 +320,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7757BF901F654FE60004629B /* User.swift in Sources */,
+				7757BF961F65556E0004629B /* Quest.swift in Sources */,
 				77CBA3291F64F94D00A74633 /* ProfileVC.swift in Sources */,
 				77CBA33A1F65220000A74633 /* Constants.swift in Sources */,
 				7757BF8D1F6542B30004629B /* DetailVC.swift in Sources */,
+				777AB5881F656E4E004E1D16 /* Faker.swift in Sources */,
+				7757BF921F654FF50004629B /* QuestsCell.swift in Sources */,
 				77CBA3321F65082500A74633 /* FindVC.swift in Sources */,
 				77CBA32B1F64F9B500A74633 /* AddVC.swift in Sources */,
+				7757BF941F6550050004629B /* RequestsCell.swift in Sources */,
 				77CBA3141F64D89B00A74633 /* ViewController.swift in Sources */,
 				77CBA3101F64D89B00A74633 /* AppDelegate.swift in Sources */,
+				7757BF981F6555D20004629B /* QuestCategory.swift in Sources */,
 				77CBA3341F6508C400A74633 /* RequestsVC.swift in Sources */,
 				77CBA33C1F65289D00A74633 /* Extensions.swift in Sources */,
 				77CBA32D1F64FA1C00A74633 /* QuestsVC.swift in Sources */,
