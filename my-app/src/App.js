@@ -7,8 +7,8 @@ import RTM from "satori-rtm-sdk";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import withScriptjs from "react-google-maps/lib/async/withScriptjs";
+// import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+// import withScriptjs from "react-google-maps/lib/async/withScriptjs";
 
 import _ from 'lodash';
 import moment from 'moment';
@@ -89,9 +89,7 @@ const startTestData = () => {
   let n = 0;
   const sendData = ()=>{
     setTimeout(()=>{
-      console.log('inside timer', n);
       const randomData = genData();
-      console.log('randomData', randomData);
       test_client.publish(test_channel, randomData);
       n++;
       if(n < 1000) sendData();
@@ -100,13 +98,13 @@ const startTestData = () => {
   sendData();
 };
 
-// startTestData();
+startTestData();
 
-// test_client.on('enter-connected', function () {
-//   console.log('Connected to Satori RTM!');
-// });
-//
-// test_client.start();
+test_client.on('enter-connected', function () {
+  console.log('Connected to Satori RTM!');
+});
+
+test_client.start();
 
 
 class App extends React.Component {
@@ -119,56 +117,51 @@ class App extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   let self = this;
-  //   test_sub.on('rtm/subscription/data', function (pdu) {
-  //     pdu.body.messages.forEach(function (msg) {
-  //       console.log('Got message:', msg);
-  //       const dataBucket = msg.direction === 'request' ? 'data_request' : 'data_offer';
-  //       self.setState((ps)=>({[dataBucket]: [msg].concat(_.take(ps[dataBucket], 100))}))
-  //     });
-  //   });
-  //
-  //
-  //
-  //   console.log('test_channel', test_channel);
-  //   var test_sub_geotype = test_client.subscribe(test_channel+'1', RTM.SubscriptionMode.SIMPLE, {
-  //     filter: 'SELECT * FROM `'+test_channel+'` GROUP BY type'
-  //   });
-  // }
+  componentDidMount() {
+    let self = this;
+    test_sub.on('rtm/subscription/data', function (pdu) {
+      pdu.body.messages.forEach(function (msg) {
+        console.log('Got message:', msg);
+        const dataBucket = msg.direction === 'request' ? 'data_request' : 'data_offer';
+        self.setState((ps)=>({[dataBucket]: [msg].concat(_.take(ps[dataBucket], 100))}))
+      });
+    });
+
+
+
+    console.log('test_channel', test_channel);
+    var test_sub_geotype = test_client.subscribe(test_channel+'1', RTM.SubscriptionMode.SIMPLE, {
+      filter: 'SELECT * FROM `'+test_channel+'` GROUP BY type'
+    });
+  }
   componentWillUnmount() {
     test_client.stop();
   }
 
   // ["action", "change_size", "flags", "hashtags", "is_anon", "is_bot", "is_minor", "is_new", "is_unpatrolled", "mentions", "ns", "page_title", "parent_rev_id", "rev_id", "summary", "url", "user"]
   render() {
-    // const { data_request, data_offer, data_geotype  } = this.state;
+    const { data_request, data_offer, data_geotype  } = this.state;
 
     // eslint-disable-next-line
-    // <SimpleMap data={ _.concat(data_request, data_offer)} />
 
-    // {table1(data_request)}
-    //
-    // {table1(data_offer)}
     //
     const f1 = function(a,b){console.log(a,b)};
 
+    const self = this;
     return (
       <div>
         <h1>Current Situation</h1>
         <div style={{width: '100%', height: '400px'}}>
+          <SimpleMap2 data={self.state.data_request.concat(self.state.data_offer)} />
         </div>
-        {/*{ map({onMapLoad: f1, markers: []})}*/}
-        {/*<GoogleMap*/}
-          {/*onClick={_.noop}*/}
-          {/*onRightClick={_.noop}*/}
-          {/*onDragStart={_.noop}*/}
-        {/*/>*/}
+
         <h1>Emergency Requests</h1>
+        {table1(data_request)}
 
         <br/>
 
-          <h1>Responders</h1>
+        <h1>Responders</h1>
+        {table1(data_offer)}
 
 
       </div>
@@ -274,115 +267,115 @@ const googleMapsAPIKey = "AIzaSyBlGrA1_s4Sd2qbGvyIeVw8lc3DfGcstbY";
 const googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.27&libraries=places,geometry&key="+googleMapsAPIKey
 
 // eslint-disable-next-line
-const map = (props) => (
-    <GoogleMap
-    ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
-    // Pass the map reference here as props
-    googleMapURL={googleMapURL}
-    onClick={props.onMapClick}
-  >
-    {props.markers.map((marker, index) => (
-      <Marker
-        {...marker}
-        onRightClick={() => props.onMarkerRightClick(index)}
-      />
-    ))}
-  </GoogleMap>
-)
-
-
-const GettingStartedGoogleMap = withGoogleMap(props => (
-  <GoogleMap
-    ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
-    onClick={props.onMapClick}
-  >
-    {props.markers.map((marker, index) => (
-      <Marker
-        {...marker}
-        onRightClick={() => props.onMarkerRightClick(index)}
-      />
-    ))}
-  </GoogleMap>
-));
+// const themap = (props) => (
+//     <GoogleMap
+//     ref={props.onMapLoad}
+//     defaultZoom={3}
+//     defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+//     // Pass the map reference here as props
+//     googleMapURL={googleMapURL}
+//     onClick={props.onMapClick}
+//   >
+//     {props.markers.map((marker, index) => (
+//       <Marker
+//         {...marker}
+//         onRightClick={() => props.onMarkerRightClick(index)}
+//       />
+//     ))}
+//   </GoogleMap>
+// )
+//
+//
+// const GettingStartedGoogleMap = withGoogleMap(props => (
+//   <GoogleMap
+//     ref={props.onMapLoad}
+//     defaultZoom={3}
+//     defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+//     onClick={props.onMapClick}
+//   >
+//     {props.markers.map((marker, index) => (
+//       <Marker
+//         {...marker}
+//         onRightClick={() => props.onMarkerRightClick(index)}
+//       />
+//     ))}
+//   </GoogleMap>
+// ));
 
 const markers = [];
 // eslint-disable-next-line
-const map2 = ()=>(
-  <GettingStartedGoogleMap
-    containerElement={
-      <div style={{ height: `100%` }} />
-    }
-    mapElement={
-      <div style={{ height: `100%` }} />
-    }
-    onMapLoad={_.noop}
-    onMapClick={_.noop}
-    markers={markers}
-    onMarkerRightClick={_.noop}
-  />
-);
-
-
-
-
-// Wrap all `react-google-maps` components with `withGoogleMap` HOC
-// then wraps it into `withScriptjs` HOC
-// It loads Google Maps JavaScript API v3 for you asynchronously.
-// Name the component AsyncGettingStartedExampleGoogleMap
-const AsyncGettingStartedExampleGoogleMap = withScriptjs(
-  withGoogleMap(
-    props => (
-      <GoogleMap
-        ref={props.onMapLoad}
-        defaultZoom={3}
-        defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
-        onClick={props.onMapClick}
-      >
-        {props.markers.map(marker => (
-          <Marker
-            {...marker}
-            onRightClick={() => props.onMarkerRightClick(marker)}
-          />
-        ))}
-      </GoogleMap>
-    )
-  )
-);
+// const map2 = ()=>(
+//   <GettingStartedGoogleMap
+//     containerElement={
+//       <div style={{ height: `100%` }} />
+//     }
+//     mapElement={
+//       <div style={{ height: `100%` }} />
+//     }
+//     onMapLoad={_.noop}
+//     onMapClick={_.noop}
+//     markers={markers}
+//     onMarkerRightClick={_.noop}
+//   />
+// );
+//
+//
+//
+//
+// // Wrap all `react-google-maps` components with `withGoogleMap` HOC
+// // then wraps it into `withScriptjs` HOC
+// // It loads Google Maps JavaScript API v3 for you asynchronously.
+// // Name the component AsyncGettingStartedExampleGoogleMap
+// const AsyncGettingStartedExampleGoogleMap = withScriptjs(
+//   withGoogleMap(
+//     props => (
+//       <GoogleMap
+//         ref={props.onMapLoad}
+//         defaultZoom={3}
+//         defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+//         onClick={props.onMapClick}
+//       >
+//         {props.markers.map(marker => (
+//           <Marker
+//             {...marker}
+//             onRightClick={() => props.onMarkerRightClick(marker)}
+//           />
+//         ))}
+//       </GoogleMap>
+//     )
+//   )
+// );
 
 // eslint-disable-next-line
-const map3 = (props) => (
-
-  <AsyncGettingStartedExampleGoogleMap
-    googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&key="+googleMapsAPIKey}
-    loadingElement={
-      <div style={{ height: `100%` }}>
-        {/*<FaSpinner*/}
-          {/*style={{*/}
-            {/*display: `block`,*/}
-            {/*width: `80px`,*/}
-            {/*height: `80px`,*/}
-            {/*margin: `150px auto`,*/}
-            {/*animation: `fa-spin 2s infinite linear`,*/}
-          {/*}}*/}
-        {/*/>*/}
-      </div>
-    }
-    containerElement={
-      <div style={{ height: `100%` }} />
-    }
-    mapElement={
-      <div style={{ height: `100%` }} />
-    }
-    onMapLoad={_.noop}
-    onMapClick={_.noop}
-    markers={markers}
-    onMarkerRightClick={_.noop}
-  />
-  )
+// const map3 = (props) => (
+//
+//   <AsyncGettingStartedExampleGoogleMap
+//     googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&key="+googleMapsAPIKey}
+//     loadingElement={
+//       <div style={{ height: `100%` }}>
+//         {/*<FaSpinner*/}
+//           {/*style={{*/}
+//             {/*display: `block`,*/}
+//             {/*width: `80px`,*/}
+//             {/*height: `80px`,*/}
+//             {/*margin: `150px auto`,*/}
+//             {/*animation: `fa-spin 2s infinite linear`,*/}
+//           {/*}}*/}
+//         {/*/>*/}
+//       </div>
+//     }
+//     containerElement={
+//       <div style={{ height: `100%` }} />
+//     }
+//     mapElement={
+//       <div style={{ height: `100%` }} />
+//     }
+//     onMapLoad={_.noop}
+//     onMapClick={_.noop}
+//     markers={markers}
+//     onMarkerRightClick={_.noop}
+//   />
+//   )
 
 const markerStyle = {
   transport: [FaAutomobile, '#da403a'],
@@ -393,10 +386,13 @@ const markerStyle = {
 	shoes: [FaCheck, '#774b98'],
 };
 
-const MarkerComponent = ({direction, type}) => {
+const MarkerComponent = ({re_quest}) => {
+  const {direction, type} = re_quest;
+  console.log('mark', {direction, type});
   const backgroundColor = direction === "request" ? "red" : "blue";
   const iconStyle = {width: '2em', height: '2em'};
   const iconSymbol = markerStyle[type][0];
+  console.log('backgroundColor', backgroundColor)
   return (
     <div style={{
       position: 'relative', color: 'white', background: {backgroundColor},
@@ -409,13 +405,16 @@ const MarkerComponent = ({direction, type}) => {
 };
 
 
-class SimpleMap extends Component {
+class SimpleMap2 extends Component {
   static defaultProps = {
     center: {lat: 37.773660, lng: -122.415878},
     zoom: 13,
-    renderHack: 1,
+    renderHack: 0.00000000001,
   };
-
+  //
+  // componentDidUpdate() {
+  //   this.setState((ps)=>{renderHack: (-1)*ps.renderHack});
+  // }
   // componentDidMount() {
   //   const self = this;
   //
@@ -427,19 +426,22 @@ class SimpleMap extends Component {
 
   render() {
     const self = this;
+    console.log();
     return (
       <GoogleMapReact
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
       >
 
-      { _.take(this.props.data, 3).map((re_quest)=>{
-          return
-            <MarkerComponent
-              lat={37.773660+self.state.renderHack}
+      { self.props.data.map((re_quest)=>{
+          return (
+             <MarkerComponent
+              lat={37.773660}
               lng={-122.415878}
               re_quest={re_quest}
+              key={Math.random()}
             />
+          )
       })}
 
       </GoogleMapReact>
