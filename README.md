@@ -27,6 +27,8 @@ Re-Quest brings the convenience, immersion, and addictive reward systems of vide
 
 ![yard simulator](http://i.imgur.com/qP4DE0b.jpg)
 
+![bagel quest](http://www.smbc-comics.com/comics/1505061264-20170910.png)
+
 ## Architecture
 
 ![architecture](resources/Architecture.png)
