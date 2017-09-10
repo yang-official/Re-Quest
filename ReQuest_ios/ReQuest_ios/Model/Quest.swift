@@ -37,9 +37,7 @@ class Quest {
     }
     
     var location: (lat: Double, lng: Double) {
-        get {
-            return (lat: lat, lng: lng)
-        }
+        return (lat: lat, lng: lng)
     }
-    
+        
 }
