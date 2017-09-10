@@ -11,9 +11,9 @@ Mobile application for submitting and fulfilling requests in real time and real 
 
 Re-Quest can be used for:
 * Real time disaster relief:
-  * Governments and disaster relief organizations can post rescue objectives to coordinate volunteers.
+  * Governments and disaster relief organizations can post rescue objectives to coordinate volunteers, donations, and rescue workers.
 * Real time trading:
-  * Anyone on the street can trade goods and services. With Button integration, users can easily advertise or find transportation (Uber) or housing (Airbnb) services.
+  * Anyone on the street can trade goods and services. With Button integration, users can easily obtain existing marketplaces and platforms.
 * Real time meet-ups:
   * Friends can form groups and meet-ups in real time for spontaneous fun.
 * Real time alerts on limited time offers
@@ -26,3 +26,7 @@ Re-Quest can be used for:
 Re-Quest brings the convenience, immersion, and addictive reward systems of video game RPG quests to accomplishing real world achievements.
 
 ![yard simulator](http://i.imgur.com/qP4DE0b.jpg)
+
+## Architecture
+
+![architecture](resources/Architecture.png)
