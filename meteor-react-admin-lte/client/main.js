@@ -6,3 +6,6 @@ import './main.html';
 
 // Main JSX
 import '/imports/startup/client/index';
+
+
+import '../imports/satori/channel_wiki.js';

@@ -1,9 +1,21 @@
-import RTM from "satori-rtm-sdk";
+var RTM = require("satori-rtm-sdk");
 
-const ENDPOINT = "wss://kpbbao2l.api.satori.com";
-const APPKEY = "E8eA0fEc0B3a8af1ca39b0aBADc0F18d";
+var endpoint = "wss://open-data.api.satori.com";
+var appKey = "B4C5b11aA7BAca204ED5e6B3BE6f2252";
+var channel = "wiki-rc-feed";
 
-// create an RTM client instance
-var rtm = new RTM(ENDPOINT, APPKEY);
+var client = new RTM(endpoint, appKey);
 
-export default rtm;
+client.on('enter-connected', function () {
+  console.log('Connected to Satori RTM!');
+});
+
+var subscription = client.subscribe(channel, RTM.SubscriptionMode.SIMPLE);
+
+subscription.on('rtm/subscription/data', function (pdu) {
+  pdu.body.messages.forEach(function (msg) {
+    console.log('Got message:', msg);
+  });
+});
+
+client.start();
