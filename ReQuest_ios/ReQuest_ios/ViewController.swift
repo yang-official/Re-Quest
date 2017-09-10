@@ -7,74 +7,34 @@
 //
 
 import UIKit
-import SceneKit
-import ARKit
+import SatoriRtmSdkWrapper
+import ESTabBarController_swift
 
-class ViewController: UIViewController, ARSCNViewDelegate {
-
-    @IBOutlet var sceneView: ARSCNView!
+class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
-        sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        setupTabController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func setupTabController() {
+        let tabController = ESTabBarController()
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingSessionConfiguration()
-        
-        // Run the view's session
-        sceneView.session.run(configuration)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Pause the view's session
-        sceneView.session.pause()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
+        let profileVC = ProfileVC()
+        let savedVC = SavedVC()
+        let findVC = FindVC()
+        let historyVC = HistoryVC()
+        let addVC = AddVC()
 
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+        profileVC.tabBarItem = ESTabBarItem.init(TabBarItemView(), title: "Profile", image: UIImage(named:"profile"))
+        historyVC.tabBarItem = ESTabBarItem.init(TabBarItemView(), title: "History", image: UIImage(named:"past"))
+        addVC.tabBarItem = ESTabBarItem.init(TabBarItemView(), title: "Add", image: UIImage(named:"add"))
+        savedVC.tabBarItem = ESTabBarItem.init(TabBarItemView(), title: "Saved", image: UIImage(named:"current"))
+        findVC.tabBarItem = ESTabBarItem.init(TabBarItemView(), title: "Search", image: UIImage(named:"find"))
+
+        tabController.viewControllers = [profileVC, savedVC, findVC, historyVC, addVC]
         
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
 }
