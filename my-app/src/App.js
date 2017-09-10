@@ -114,6 +114,7 @@ class App extends React.Component {
       data_request: [],
       data_offer: [],
       data_aggr: [],
+      data_bot: [],
     };
   }
 
@@ -142,6 +143,21 @@ class App extends React.Component {
       });
     });
 
+    var test_sub_bot = test_client.subscribe(test_channel+'2', RTM.SubscriptionMode.SIMPLE, {
+      filter: 'SELECT COUNT(*),`type` FROM `'+test_channel+'` GROUP BY `type`',
+      period: 60,
+    });
+
+
+    test_sub_bot.on('rtm/subscription/data', function (pdu) {
+      pdu.body.messages.forEach(function (msg) {
+        console.log('Got message aggr:', msg);
+        self.setState((ps)=>({data_bot: [msg].concat(_.take(ps.data_bot, 100))}))
+      });
+    });
+
+
+
   }
   componentWillUnmount() {
     test_client.stop();
@@ -149,7 +165,7 @@ class App extends React.Component {
 
   // ["action", "change_size", "flags", "hashtags", "is_anon", "is_bot", "is_minor", "is_new", "is_unpatrolled", "mentions", "ns", "page_title", "parent_rev_id", "rev_id", "summary", "url", "user"]
   render() {
-    const { data_request, data_offer, data_aggr } = this.state;
+    const { data_request, data_offer, data_aggr, data_bot } = this.state;
 
     // eslint-disable-next-line
 
@@ -178,12 +194,34 @@ class App extends React.Component {
         <h1>Activity in Last-Minute</h1>
         {table3(data_aggr)}
 
+        <h1>Bot Results</h1>
+        {table4(data_bot)}
+
       </div>
     )
   }
 }
 
 export default App;
+
+const table4 = (data) => (
+    <ReactTable
+      data={data}
+      columns={[
+        {
+              Header: "Type",
+              accessor: "type"
+        },
+        {
+          Header: 'Count',
+          accessor: "COUNT(*)"
+        }
+
+      ]}
+      defaultPageSize={10}
+      className="-striped -highlight"
+    />
+);
 
 const table3 = (data) => (
     <ReactTable
