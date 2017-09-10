@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0636B1521F451E1644C5256E /* Pods_ReQuest_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3CC227496372F43CB1D16CA /* Pods_ReQuest_ios.framework */; };
+		7757BF8D1F6542B30004629B /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757BF8C1F6542B30004629B /* DetailVC.swift */; };
 		77CBA3101F64D89B00A74633 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA30F1F64D89B00A74633 /* AppDelegate.swift */; };
 		77CBA3141F64D89B00A74633 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3131F64D89B00A74633 /* ViewController.swift */; };
 		77CBA3171F64D89B00A74633 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77CBA3151F64D89B00A74633 /* Main.storyboard */; };
@@ -17,10 +18,9 @@
 		77CBA3251F64D90B00A74633 /* SatoriRtmSdkWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 77CBA3231F64D90600A74633 /* SatoriRtmSdkWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77CBA3291F64F94D00A74633 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3281F64F94D00A74633 /* ProfileVC.swift */; };
 		77CBA32B1F64F9B500A74633 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA32A1F64F9B500A74633 /* AddVC.swift */; };
-		77CBA32D1F64FA1C00A74633 /* SavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA32C1F64FA1C00A74633 /* SavedVC.swift */; };
-		77CBA3301F64FB1600A74633 /* TabBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA32F1F64FB1600A74633 /* TabBarItemView.swift */; };
+		77CBA32D1F64FA1C00A74633 /* QuestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA32C1F64FA1C00A74633 /* QuestsVC.swift */; };
 		77CBA3321F65082500A74633 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3311F65082500A74633 /* FindVC.swift */; };
-		77CBA3341F6508C400A74633 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3331F6508C400A74633 /* HistoryVC.swift */; };
+		77CBA3341F6508C400A74633 /* RequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3331F6508C400A74633 /* RequestsVC.swift */; };
 		77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3351F650AAB00A74633 /* NavBarController.swift */; };
 		77CBA3381F6520AB00A74633 /* Satori.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3371F6520AB00A74633 /* Satori.swift */; };
 		77CBA33A1F65220000A74633 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3391F65220000A74633 /* Constants.swift */; };
@@ -44,6 +44,7 @@
 /* Begin PBXFileReference section */
 		2437E6F6D31EF021CCE63BCA /* Pods-ReQuest_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReQuest_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReQuest_ios/Pods-ReQuest_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		6A0148001F450195C03E1F48 /* Pods-ReQuest_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReQuest_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReQuest_ios/Pods-ReQuest_ios.release.xcconfig"; sourceTree = "<group>"; };
+		7757BF8C1F6542B30004629B /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		77CBA30C1F64D89B00A74633 /* ReQuest_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReQuest_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77CBA30F1F64D89B00A74633 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77CBA3131F64D89B00A74633 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,10 +55,9 @@
 		77CBA3231F64D90600A74633 /* SatoriRtmSdkWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SatoriRtmSdkWrapper.framework; sourceTree = "<group>"; };
 		77CBA3281F64F94D00A74633 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		77CBA32A1F64F9B500A74633 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
-		77CBA32C1F64FA1C00A74633 /* SavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVC.swift; sourceTree = "<group>"; };
-		77CBA32F1F64FB1600A74633 /* TabBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemView.swift; sourceTree = "<group>"; };
+		77CBA32C1F64FA1C00A74633 /* QuestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsVC.swift; sourceTree = "<group>"; };
 		77CBA3311F65082500A74633 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
-		77CBA3331F6508C400A74633 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		77CBA3331F6508C400A74633 /* RequestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsVC.swift; sourceTree = "<group>"; };
 		77CBA3351F650AAB00A74633 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		77CBA3371F6520AB00A74633 /* Satori.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satori.swift; sourceTree = "<group>"; };
 		77CBA3391F65220000A74633 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				77CBA32E1F64FAFF00A74633 /* View */,
-				77CBA3271F64F93600A74633 /* ViewControllers */,
+				77CBA3271F64F93600A74633 /* Controllers */,
 				77CBA30F1F64D89B00A74633 /* AppDelegate.swift */,
 				77CBA3131F64D89B00A74633 /* ViewController.swift */,
 				77CBA3151F64D89B00A74633 /* Main.storyboard */,
@@ -124,23 +124,23 @@
 			path = ReQuest_ios;
 			sourceTree = "<group>";
 		};
-		77CBA3271F64F93600A74633 /* ViewControllers */ = {
+		77CBA3271F64F93600A74633 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				77CBA3281F64F94D00A74633 /* ProfileVC.swift */,
-				77CBA3331F6508C400A74633 /* HistoryVC.swift */,
+				77CBA3331F6508C400A74633 /* RequestsVC.swift */,
 				77CBA32A1F64F9B500A74633 /* AddVC.swift */,
-				77CBA32C1F64FA1C00A74633 /* SavedVC.swift */,
+				77CBA32C1F64FA1C00A74633 /* QuestsVC.swift */,
 				77CBA3311F65082500A74633 /* FindVC.swift */,
+				7757BF8C1F6542B30004629B /* DetailVC.swift */,
 				77CBA3351F650AAB00A74633 /* NavBarController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		77CBA32E1F64FAFF00A74633 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				77CBA32F1F64FB1600A74633 /* TabBarItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,14 +256,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ReQuest_ios/Pods-ReQuest_ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/TJProfileImage/TJProfileImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/TimelineTableViewCell/TimelineTableViewCell.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TJProfileImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TimelineTableViewCell.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,15 +300,15 @@
 			files = (
 				77CBA3291F64F94D00A74633 /* ProfileVC.swift in Sources */,
 				77CBA33A1F65220000A74633 /* Constants.swift in Sources */,
+				7757BF8D1F6542B30004629B /* DetailVC.swift in Sources */,
 				77CBA3321F65082500A74633 /* FindVC.swift in Sources */,
 				77CBA32B1F64F9B500A74633 /* AddVC.swift in Sources */,
 				77CBA3141F64D89B00A74633 /* ViewController.swift in Sources */,
 				77CBA3101F64D89B00A74633 /* AppDelegate.swift in Sources */,
-				77CBA3341F6508C400A74633 /* HistoryVC.swift in Sources */,
+				77CBA3341F6508C400A74633 /* RequestsVC.swift in Sources */,
 				77CBA33C1F65289D00A74633 /* Extensions.swift in Sources */,
-				77CBA32D1F64FA1C00A74633 /* SavedVC.swift in Sources */,
+				77CBA32D1F64FA1C00A74633 /* QuestsVC.swift in Sources */,
 				77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */,
-				77CBA3301F64FB1600A74633 /* TabBarItemView.swift in Sources */,
 				77CBA3381F6520AB00A74633 /* Satori.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,8 @@ target 'ReQuest_ios' do
   # Pods for ReQuest_ios
   pod 'ARCL', :path => '/Users/leonmak/Desktop/ARKit-practice/ARKit-CoreLocation'
   pod "TimelineTableViewCell"
-  pod 'ESTabBarController-swift'
-	
+  pod 'TJProfileImage'
+  pod 'TextFieldEffects'	
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
 end

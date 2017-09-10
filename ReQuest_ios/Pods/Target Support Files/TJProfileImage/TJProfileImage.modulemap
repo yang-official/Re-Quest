@@ -1,0 +1,6 @@
+framework module TJProfileImage {
+  umbrella header "TJProfileImage-umbrella.h"
+
+  export *
+  module * { export * }
+}
