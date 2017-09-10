@@ -32,12 +32,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column'
   },
-  bottomNav: {
-    position: "absolute",
-    bottom: 0,
-    right: 0,
-    width: '100%',
-  },
+
   container2: {
     flex: '1 1 100%;',
     display: 'flex',
@@ -112,22 +107,13 @@ class Main extends Component {
             onTouchTap={this.handleTouchTap}
           />
 
-          <Tabs
-            style={styles.bottomNav}
-            contentContainerStyle={styles.container}
-            tabTemplate={TabTemplate}
-          >
-            <Tab label="tab1"></Tab>
-            <Tab label="tab2"></Tab>
-          </Tabs>
-
+          <BottomNav />
         </div>
       </MuiThemeProvider>
     );
   }
 }
 
-// <BottomNav />
 export default Main;
 
 
