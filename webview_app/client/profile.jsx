@@ -18,6 +18,36 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import FontIcon from 'material-ui/FontIcon';
 
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+
+const CardExampleWithAvatar = () => (
+  <Card>
+    <CardHeader
+      title="Jason Bourne"
+      subtitle="Emergency Responder"
+      avatar="images/pexels-photo1.jpg"
+    />
+    <CardMedia
+      overlay={<CardTitle title="Jason Bourne" subtitle="Emergency Responder" />}
+    >
+      <img src="images/pexels-photo1.jpg" alt="" />
+    </CardMedia>
+    <CardTitle title="123 rescues" subtitle="CPR certified, owns truck" />
+
+    <CardActions>
+      <FlatButton label="See quest" onClick={()=>{FlowRouter.go('quest_list')}}/>
+      <FlatButton label="Post quest" onClick={()=>{FlowRouter.go('quest_create')}}/>
+    </CardActions>
+  </Card>
+);
+
+//     <CardText>
+//       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//       Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+//       Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+//       Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+//     </CardText>
+
 class AppBarExample extends React.Component {
 
   constructor(props) {
@@ -127,20 +157,7 @@ class ProfilePage extends Component {
 
           <AppBarExample/>
 
-          <h1>Material-UI</h1>
-          <h2>example project</h2>
-          <RaisedButton
-            label="Upload File"
-            icon={<FontIcon className="material-icons">file_upload</FontIcon>} // material-ui-icons
-            secondary={true}
-            // onTouchTap={this.handleTouchTap}
-          >
-            <input
-              onTouchTap={e => this.upload(e.target.files[0])}
-              style={{ display: 'none' }}
-              type="file"
-            />
-          </RaisedButton>
+          <CardExampleWithAvatar/>
 
           <BottomNav />
         </div>

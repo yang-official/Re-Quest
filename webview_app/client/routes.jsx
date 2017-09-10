@@ -22,3 +22,15 @@ FlowRouter.route('/profile', {
     mount(Profile);
   }
 });
+
+
+FlowRouter.route('/quest_create', {
+  action: function(params, queryParams) {
+    mount(Profile);
+  }
+});
+FlowRouter.route('/quest_list', {
+  action: function(params, queryParams) {
+    mount(Profile);
+  }
+});
