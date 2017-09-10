@@ -12,7 +12,7 @@ import ChameleonFramework
 
 class AddVC: UIViewController {
     
-    @IBOutlet weak var titleField: AkiraTextField!
+    @IBOutlet weak var titleField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

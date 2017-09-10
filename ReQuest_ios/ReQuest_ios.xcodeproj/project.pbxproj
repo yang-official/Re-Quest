@@ -27,7 +27,6 @@
 		77CBA32D1F64FA1C00A74633 /* QuestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA32C1F64FA1C00A74633 /* QuestsVC.swift */; };
 		77CBA3321F65082500A74633 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3311F65082500A74633 /* FindVC.swift */; };
 		77CBA3341F6508C400A74633 /* RequestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3331F6508C400A74633 /* RequestsVC.swift */; };
-		77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3351F650AAB00A74633 /* NavBarController.swift */; };
 		77CBA3381F6520AB00A74633 /* Satori.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3371F6520AB00A74633 /* Satori.swift */; };
 		77CBA33A1F65220000A74633 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA3391F65220000A74633 /* Constants.swift */; };
 		77CBA33C1F65289D00A74633 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CBA33B1F65289D00A74633 /* Extensions.swift */; };
@@ -70,7 +69,6 @@
 		77CBA32C1F64FA1C00A74633 /* QuestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsVC.swift; sourceTree = "<group>"; };
 		77CBA3311F65082500A74633 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
 		77CBA3331F6508C400A74633 /* RequestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsVC.swift; sourceTree = "<group>"; };
-		77CBA3351F650AAB00A74633 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		77CBA3371F6520AB00A74633 /* Satori.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satori.swift; sourceTree = "<group>"; };
 		77CBA3391F65220000A74633 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		77CBA33B1F65289D00A74633 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ReQuest_ios/Extensions.swift; sourceTree = SOURCE_ROOT; };
@@ -151,12 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				77CBA3281F64F94D00A74633 /* ProfileVC.swift */,
-				77CBA3331F6508C400A74633 /* RequestsVC.swift */,
 				77CBA32A1F64F9B500A74633 /* AddVC.swift */,
 				77CBA32C1F64FA1C00A74633 /* QuestsVC.swift */,
+				77CBA3331F6508C400A74633 /* RequestsVC.swift */,
 				77CBA3311F65082500A74633 /* FindVC.swift */,
 				7757BF8C1F6542B30004629B /* DetailVC.swift */,
-				77CBA3351F650AAB00A74633 /* NavBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -336,7 +333,6 @@
 				77CBA3341F6508C400A74633 /* RequestsVC.swift in Sources */,
 				77CBA33C1F65289D00A74633 /* Extensions.swift in Sources */,
 				77CBA32D1F64FA1C00A74633 /* QuestsVC.swift in Sources */,
-				77CBA3361F650AAB00A74633 /* NavBarController.swift in Sources */,
 				77CBA3381F6520AB00A74633 /* Satori.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

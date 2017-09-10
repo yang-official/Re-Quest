@@ -14,12 +14,17 @@ class QuestsCell: UITableViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     
-    var requester: User!
     var quest: Quest!
     
-    func configureCell(requester: User, quest: Quest) {
-        self.requester = requester
+    func configureCell(quest: Quest) {
         self.quest = quest
+        var imageString = "default"
+        if let imageFileName = quest.creator.profilePicUrl {
+            imageString = imageFileName
+        }
+        userImg.image = UIImage(named: imageString)
+        titleLbl.text = quest.title
+        descriptionLbl.text = quest.description
     }
 
 }

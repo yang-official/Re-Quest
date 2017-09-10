@@ -9,10 +9,16 @@
 import Foundation
 
 class User {
+    var id: Int
     var name: String
     var profilePicUrl: String?
     
-    init(name: String, profilePicUrl: String?) {
+    init(name: String, profilePicUrl: String?, seed: Int? = nil) {
+        if seed != nil  {
+            self.id = seed!
+        } else {
+            self.id = 0
+        }
         self.name = name
         self.profilePicUrl = profilePicUrl
     }

@@ -13,7 +13,8 @@ struct Constants {
         static let Satori = "com.ReQuest.SatoriNotification"
     }
     
-    static let RequestCellId = "RequestCell"
+    static let RequestCellId = "RequestsCell"
+    static let QuestCellId = "QuestsCell"
     
     static let DetailVCId = "DetailVC"
 }

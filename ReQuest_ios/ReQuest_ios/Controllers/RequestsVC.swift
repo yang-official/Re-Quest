@@ -9,12 +9,15 @@
 import UIKit
 
 class RequestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var requests: [Quest] = []
+    var requests: [Quest] = Faker.instance.getRequests()
     
     @IBOutlet weak var requestsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestsTable.dataSource = self
+        requestsTable.delegate = self
+        requestsTable.estimatedRowHeight = 90
     }
     
     // MARK: TableView

@@ -9,14 +9,16 @@
 import UIKit
 
 class QuestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var quests: [Quest] = []
+    var quests: [Quest] = Faker.instance.getQuests()
     
     @IBOutlet weak var questsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        questsTable.dataSource = self
+        questsTable.delegate = self
+        questsTable.estimatedRowHeight = 90
     }
-    
     
     // MARK: TableView
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -28,7 +30,7 @@ class QuestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = questsTable.dequeueReusableCell(withIdentifier: Constants.RequestCellId, for: indexPath) as? RequestsCell else {
+        guard let cell = questsTable.dequeueReusableCell(withIdentifier: Constants.QuestCellId, for: indexPath) as? QuestsCell else {
             return UITableViewCell()
         }
         let quest = quests[indexPath.row]
@@ -37,7 +39,7 @@ class QuestsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = questsTable.cellForRow(at: indexPath) as? RequestsCell {
+        if let cell = questsTable.cellForRow(at: indexPath) as? QuestsCell {
             performSegue(withIdentifier: Constants.DetailVCId, sender: cell.quest)
         }
     }

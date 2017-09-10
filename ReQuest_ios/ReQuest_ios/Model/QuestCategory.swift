@@ -14,5 +14,21 @@ enum QuestCategory {
     case Tourist
     case Transportation
     case Housing
+    case Water
     case Uncategorized
+    
+    func getMarkerPin() -> String {
+        switch self {
+        case .Food:
+            return "supplies_pin"
+        case .Transportation:
+            return "car_pin"
+        case .Water:
+            return "water_pin"
+        case .Housing:
+            return "health_pin"
+        case .Labour, .Tourist, .Uncategorized:
+            return "user_pin"
+        }
+    }
 }

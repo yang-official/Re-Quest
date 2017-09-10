@@ -11,5 +11,8 @@ import UIKit
 class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSLog("Initializing Satori")
+        Satori.instance.initialize()
     }
 }
