@@ -1,5 +1,19 @@
 var outputChannel = config['outputChannel']
 
-function onMessage(channel, message) {
-  rtm.publish(outputChannel, message)
+function handleMessage(message) {
+  if (!message.metadata) {
+    return;
+  }
+}
+
+function channelManager(subId, message) {
+  if (subId === 'manager') {
+    handleMessage(message);
+  } else {
+    console.info('unknown id', subId)
+  }
+}
+
+function onMessage(subId, message) {
+  channelManager(subId, message)
 }
