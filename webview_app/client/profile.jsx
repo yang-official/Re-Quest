@@ -3,8 +3,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+
+
 import BottomNav from './components/bottomnav.jsx';
-import AppBar from './components/appbar.jsx';
 
 import Dialog from 'material-ui/Dialog';
 import {Tabs, Tab} from 'material-ui/Tabs';
@@ -14,6 +18,38 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import FontIcon from 'material-ui/FontIcon';
 
+class AppBarExample extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
+  }
+
+  handleToggle = () => {
+    console.log('clicked');
+    this.setState({open: !this.state.open});
+
+  }
+
+  render() {
+    return (
+      <div>
+        <AppBar
+          title="Profile"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onLeftIconButtonTouchTap={this.handleToggle}
+          // onRightIconButtonTouchTap={this.handleToggle}
+          // onTitleTouchTap={this.handleToggle}
+          zDepth={1}
+        />
+        <Drawer open={this.state.open} zDepth={2}>
+          <MenuItem  style={{marginTop: 30}} onTouchTap={()=>FlowRouter.go('/profile')}>Profile</MenuItem>
+          <MenuItem>Requests</MenuItem>
+        </Drawer>
+      </div>
+    );
+  }
+}
 
 
 const muiTheme = getMuiTheme({
@@ -53,7 +89,7 @@ class TabTemplate extends React.Component {
   }
 }
 
-class Main extends Component {
+class ProfilePage extends Component {
   constructor(props, context) {
     super(props, context);
 
@@ -89,10 +125,10 @@ class Main extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
 
-          <AppBar/>
+          <AppBarExample/>
 
-          <a href="/profile"><h1>Material-UI</h1>
-          <h2>example project</h2></a>
+          <h1>Material-UI</h1>
+          <h2>example project</h2>
           <RaisedButton
             label="Upload File"
             icon={<FontIcon className="material-icons">file_upload</FontIcon>} // material-ui-icons
@@ -113,7 +149,7 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default ProfilePage;
 
 
 

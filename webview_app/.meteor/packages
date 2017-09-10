@@ -22,3 +22,7 @@ blaze-html-templates
 
 mirrorcell:background-geolocation-plus
 planettraining:material-design-icons-font
+cfs:standard-packages
+cfs:s3
+cfs:filesystem
+kadira:flow-router
