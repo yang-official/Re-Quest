@@ -1,0 +1,25 @@
+sudo: required
+language: node_js
+node_js:
+  - 6
+  - 7
+
+before_install:
+  - "curl -L https://git.io/ejPSng | /bin/sh"
+  - curl "https://install.meteor.com/?release=1.4.2.7"
+  - export PATH="$HOME/.meteor:$PATH"
+
+env:
+  - CXX=g++-4.8
+
+cache:
+  directories:
+    - node_modules
+    - .meteor
+
+before_script:
+  - meteor npm install
+
+script:
+  - meteor npm run test
+  - meteor build $HOME/build.tgz
